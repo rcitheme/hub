@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Lenin";
+    src: url("/fonts/lenin_normal_400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lenin";
+    src: url("/fonts/lenin_normal_700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lenin Condensed";
+    src: url("/fonts/lenin-condensed_normal_400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lenin Condensed";
+    src: url("/fonts/lenin-condensed_normal_700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@theme {
+    --font-sans: "Lenin", sans-serif;
+    --font-condensed: "Lenin Condensed", sans-serif;
+    --color-rci-red: #ea1917;
+
+    /* Custom background utility if needed, but standard gray-50 works for off-white */
+}
+
+/* Base styles for global defaults */
+body {
+    @apply bg-gray-50 text-gray-800 font-sans;
+}

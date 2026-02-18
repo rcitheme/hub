@@ -1,0 +1,80 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Card from '../components/Card.astro';
+---
+
+<MainLayout title="Home">
+  <div class="space-y-12">
+    <!-- Hero Section -->
+    <section>
+      <h1 class="text-4xl font-condensed font-bold text-gray-900 mb-4">
+        RCI Developer Hub
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl leading-relaxed">
+        The central resource for RCI digital assets, documentation, and tooling. 
+        Build faster with our design system and component libraries.
+      </p>
+    </section>
+
+    <!-- Cards Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <Card
+        title="Lenin 2.0 Theme"
+        description="Documentation for the core RCI WordPress theme, including patterns, blocks, and customization guides."
+        href="#"
+        icon="icon-theme" 
+      />
+      <Card
+        title="Brand Assets"
+        description="Official logos, color palettes, and typography guidelines for all RCI digital properties."
+        href="#"
+        icon="icon-brand"
+      />
+      <Card
+        title="Plugin Repository"
+        description="A catalog of approved WordPress plugins, including RCI News Slider and custom integrations."
+        href="#"
+        icon="icon-plugin"
+      />
+      <Card
+        title="API Documentation"
+        description="Endpoints and authentication guides for key RCI services and data feeds."
+        href="#"
+        icon="icon-api"
+      />
+      <Card
+        title="Security Guidelines"
+        description="Best practices for securing RCI applications and maintaining compliance."
+        href="#"
+        icon="icon-shield"
+      />
+      <Card
+        title="Deployment Workflows"
+        description="CI/CD pipelines and deployment strategies for our infrastructure."
+        href="#"
+        icon="icon-deploy"
+      />
+    </section>
+
+    <!-- Optional: Recent Updates or Changelog Section akin to Google Antigravity example -->
+    <section class="mt-16 border-t border-gray-200 pt-8">
+        <h2 class="text-2xl font-condensed font-bold text-gray-900 mb-6">Recent Updates</h2>
+        <div class="space-y-8">
+            <div class="flex gap-4">
+                <div class="text-sm font-bold text-gray-500 min-w-[100px]">Feb 18, 2026</div>
+                <div>
+                    <h3 class="font-bold text-gray-900">RCI News Slider v2.4</h3>
+                    <p class="text-gray-600 mt-1">Updated author metadata and fixed responsive layout issues.</p>
+                </div>
+            </div>
+             <div class="flex gap-4">
+                <div class="text-sm font-bold text-gray-500 min-w-[100px]">Feb 10, 2026</div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Lenin Theme Patch</h3>
+                    <p class="text-gray-600 mt-1">Minor CSS fixes for navigation menus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+</MainLayout>

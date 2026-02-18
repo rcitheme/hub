@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  icon?: string; // Optional icon class or path
+}
+
+const { title, description, href = "#", icon } = Astro.props;
+---
+
+<a href={href} class="block group h-full">
+  <div class="h-full bg-white border border-gray-200 rounded-xl shadow-sm p-6 transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-md flex flex-col">
+    {icon && (
+      <div class="mb-4 text-gray-400 group-hover:text-rci-red transition-colors">
+        <span class={icon}></span> <!-- Placeholder for icon -->
+      </div>
+    )}
+    <h3 class="text-lg font-condensed font-bold text-gray-900 mb-2">{title}</h3>
+    <p class="text-gray-600 text-sm flex-grow">{description}</p>
+    
+    <!-- Optional: Add an arrow or indicator on hover -->
+    <div class="mt-4 text-rci-red opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium flex items-center">
+      Learn more <span class="ml-1">→</span>
+    </div>
+  </div>
+</a>
