@@ -23,21 +23,22 @@ const { title, headings } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} | RCI Developer Hub</title>
     <ClientRouter />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
   </head>
   <body class="bg-[#F8F9FA] text-[#202124] font-sans antialiased min-h-screen flex flex-col">
     
     <!-- Top Bar -->
-    <header class="bg-white border-b border-[#E0E0E0] h-16 flex items-center px-6 fixed w-full top-0 z-50">
+    <header class="bg-white border-b border-[#DADCE0] h-16 flex items-center px-6 fixed w-full top-0 z-50">
         <div class="font-condensed font-bold text-xl text-[#202124] flex items-center">
             <a href="/" class="flex items-center gap-2 decoration-0 text-inherit hover:text-inherit">
+                <!-- RCI Logo / Brand -->
                 <span class="text-[#ea1917]">RCI</span> Developer Hub
             </a>
         </div>
-        <div class="ml-auto flex gap-6 text-[14px] font-medium text-[#5F6368]">
-            <a href="/docs/01-getting-started" class="hover:text-[#ea1917] transition-colors">Docs</a>
-            <a href="/download" class="hover:text-[#ea1917] transition-colors">Download</a>
-            <a href="/changelog" class="hover:text-[#ea1917] transition-colors">Changelog</a>
+        <div class="ml-auto flex gap-8 text-[14px] font-medium text-[#5F6368]">
+            <a href="/docs/01-getting-started" class="hover:text-[#202124] transition-colors">Docs</a>
+            <a href="/download" class="hover:text-[#202124] transition-colors">Download</a>
+            <a href="/changelog" class="hover:text-[#202124] transition-colors">Changelog</a>
         </div>
     </header>
 
