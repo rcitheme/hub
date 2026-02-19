@@ -60,15 +60,15 @@ const next = nextSlug ? allDocs.find(d => d.slug === nextSlug) : null;
       <!-- Breadcrumbs -->
       <nav class="flex items-center text-[13px] text-[#5F6368] mb-8 select-none">
           <a href="/" class="hover:text-[#202124] transition-colors">Home</a>
-          <span class="mx-2">/</span>
+          <span class="material-symbols-outlined text-[10px] text-[#9AA0A6] mx-2">chevron_right</span>
           <a href="/docs/01-getting-started" class="hover:text-[#202124] transition-colors">Docs</a>
           {breadcrumbs.map(crumb => (
             <>
-                <span class="mx-2">/</span>
+                <span class="material-symbols-outlined text-[10px] text-[#9AA0A6] mx-2">chevron_right</span>
                 <a href={crumb.path.endsWith('intro') ? crumb.path : crumb.path + '/intro'} class="hover:text-[#202124] transition-colors">{crumb.label}</a>
             </>
           ))}
-          <span class="mx-2">/</span>
+          <span class="material-symbols-outlined text-[10px] text-[#9AA0A6] mx-2">chevron_right</span>
           <span class="text-[#202124] font-medium truncate">{entry.data.title}</span>
       </nav>
 
@@ -114,14 +114,35 @@ const next = nextSlug ? allDocs.find(d => d.slug === nextSlug) : null;
     .prose p {
         line-height: 1.8;
     }
+    /* Code Blocks - Dark Theme */
+    .prose pre {
+        background-color: #202124 !important;
+        color: #e8eaed !important;
+        padding: 1.5em;
+        border-radius: 12px;
+        overflow-x: auto;
+        font-size: 14px;
+        margin: 2em 0;
+        border: 1px solid #3c4043;
+    }
+    
+    /* Inline Code */
     .prose code {
         background-color: #f1f3f4;
         color: #d93025;
         padding: 0.2em 0.4em;
         border-radius: 4px;
         font-weight: 500;
+        font-size: 0.875em;
     }
-    .prose code::before, .prose code::after {
-        content: "";
+
+    /* Reset for code inside pre (don't inherit inline styles) */
+    .prose pre code {
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+        border-radius: 0;
+        font-weight: normal;
+        font-size: inherit;
     }
 </style>

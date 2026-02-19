@@ -30,40 +30,60 @@ const { headings = [] } = Astro.props;
 
 <script>
   // Active Scroll Spy
-  const observerOptions = {
-    root: null,
-    rootMargin: "-100px 0px -66% 0px", // High trigger point
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        if (id) {
-            updateActiveLink(id);
-        }
+  const tocLinks = document.querySelectorAll(".toc-link");
+  const sections = [];
+  
+  // Collect all headings and their positions
+  document.querySelectorAll(".prose h2, .prose h3").forEach((heading) => {
+      if (heading.id) {
+          sections.push(heading);
       }
-    });
-  }, observerOptions);
-
-  // Track all headers
-  document.querySelectorAll("h2, h3").forEach((heading) => {
-    observer.observe(heading);
   });
 
+  function onScroll() {
+      const scrollPos = window.scrollY + 100; // Offset for sticky header
+      
+      let current = "";
+      for (const section of sections) {
+          if (section.offsetTop <= scrollPos) {
+              current = section.id;
+          }
+      }
+
+      // If at bottom, highlight last
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        if (sections.length > 0) {
+            current = sections[sections.length - 1].id;
+        }
+      }
+
+      updateActiveLink(current);
+  }
+
   function updateActiveLink(id) {
-    // Remove active from all
-    document.querySelectorAll(".toc-link").forEach((link) => {
+    tocLinks.forEach((link) => {
         link.classList.remove("text-[#202124]", "border-[#202124]", "font-medium");
         link.classList.add("text-[#5F6368]", "border-transparent");
+        
+        if (link.getAttribute("data-slug") === id) {
+            link.classList.remove("text-[#5F6368]", "border-transparent");
+            link.classList.add("text-[#202124]", "border-[#202124]", "font-medium");
+        }
     });
-
-    // Add to current
-    const activeLink = document.querySelector(`.toc-link[data-slug="${id}"]`);
-    if (activeLink) {
-        activeLink.classList.remove("text-[#5F6368]", "border-transparent");
-        activeLink.classList.add("text-[#202124]", "border-[#202124]", "font-medium");
-    }
   }
+
+  // Throttled scroll listener
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            onScroll();
+            ticking = false;
+        });
+        ticking = true;
+    }
+  });
+  
+  // Initial check
+  onScroll();
 </script>

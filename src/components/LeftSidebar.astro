@@ -4,101 +4,132 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<aside class="w-[260px] fixed top-16 bottom-0 left-0 overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block z-30">
-    <nav class="space-y-4 pt-6 px-4 pb-6">
-        
-        <!-- Getting Started -->
-        <details class="group" open>
-            <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Getting Started</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                <li><a href="/docs/01-getting-started" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
-            </ul>
-        </details>
+<nav class="space-y-4 pt-6 px-4 pb-6">
+    
+    <!-- Getting Started -->
+    <div class="group">
+        <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <a href="/docs/01-getting-started" class="text-[13px] font-medium text-[#202124] flex-1 block">Getting Started</a>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Getting Started">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+        <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+            <li><a href="/docs/01-getting-started" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
+        </ul>
+    </div>
 
-        <!-- Themes -->
-        <details class="group">
-            <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Themes</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-             <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                <li><a href="/docs/themes/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
-                <li><a href="/docs/themes/lenin" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Lenin Theme</a></li>
-            </ul>
-        </details>
+    <!-- Themes -->
+    <div class="group">
+        <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <a href="/docs/themes/intro" class="text-[13px] font-medium text-[#202124] flex-1 block">Themes</a>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Themes">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+         <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2 hidden">
+            <li><a href="/docs/themes/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
+            <li><a href="/docs/themes/lenin" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Lenin Theme</a></li>
+        </ul>
+    </div>
 
-        <!-- Plugins -->
-        <details class="group">
-             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Plugins</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                 <li><a href="/docs/plugins/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
-                <li><a href="/docs/plugins/news-slider" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">News Slider</a></li>
-                <li><a href="/docs/plugins/preheader" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Preheader</a></li>
-            </ul>
-        </details>
+    <!-- Plugins -->
+    <div class="group">
+         <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <a href="/docs/plugins/intro" class="text-[13px] font-medium text-[#202124] flex-1 block">Plugins</a>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Plugins">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+        <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2 hidden">
+             <li><a href="/docs/plugins/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
+            <li><a href="/docs/plugins/news-slider" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">News Slider</a></li>
+            <li><a href="/docs/plugins/preheader" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Preheader</a></li>
+        </ul>
+    </div>
 
-        <!-- Design System -->
-        <details class="group">
-             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Design System</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                <li><a href="/docs/design/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
-                <li><a href="/docs/design/colors" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Colors</a></li>
-                <li><a href="/docs/design/typography" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Typography</a></li>
-            </ul>
-        </details>
+    <!-- Design System -->
+    <div class="group">
+         <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <a href="/docs/design/intro" class="text-[13px] font-medium text-[#202124] flex-1 block">Design System</a>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Design System">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+        <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2 hidden">
+            <li><a href="/docs/design/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
+            <li><a href="/docs/design/colors" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Colors</a></li>
+            <li><a href="/docs/design/typography" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Typography</a></li>
+        </ul>
+    </div>
 
-        <!-- Workflow -->
-        <details class="group">
-             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Workflow</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                <li><a href="/docs/workflow/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
-                <li><a href="/docs/workflow/git-standards" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Git Standards</a></li>
-            </ul>
-        </details>
+    <!-- Workflow -->
+    <div class="group">
+         <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <a href="/docs/workflow/intro" class="text-[13px] font-medium text-[#202124] flex-1 block">Workflow</a>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Workflow">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+        <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2 hidden">
+            <li><a href="/docs/workflow/intro" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
+            <li><a href="/docs/workflow/git-standards" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Git Standards</a></li>
+        </ul>
+    </div>
 
-        <!-- Resources -->
-         <details class="group">
-             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
-                <span>Resources</span>
-                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-            </summary>
-            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
-                <li><a href="/download" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Downloads</a></li>
-                <li><a href="/changelog" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Changelog</a></li>
-            </ul>
-        </details>
+    <!-- Resources -->
+     <div class="group">
+         <div class="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#F1F3F4] transition-colors pr-0">
+            <span class="text-[13px] font-medium text-[#202124] flex-1 block">Resources</span>
+            <button class="toggle-btn p-1 text-[#5F6368] hover:text-[#202124] cursor-pointer" aria-label="Toggle Resources">
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+            </button>
+        </div>
+        <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2 hidden">
+            <li><a href="/download" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Downloads</a></li>
+            <li><a href="/changelog" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Changelog</a></li>
+        </ul>
+    </div>
 
-    </nav>
+</nav>
 
-    <script>
-        // Auto-open active section
-        const currentPath = window.location.pathname;
-        const links = document.querySelectorAll('aside nav a');
-        
-        links.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                // Style active link
-                link.classList.remove('text-[#5F6368]', 'border-transparent');
-                link.classList.add('text-[#1967D2]', 'border-[#1967D2]', 'bg-[#E8F0FE]', 'font-medium');
-                
-                // Open parent details
-                const details = link.closest('details');
-                if (details) {
-                    details.open = true;
-                }
+<script>
+    // Logic for custom toggle behavior
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const group = btn.closest('.group');
+            const list = group.querySelector('ul');
+            const icon = btn.querySelector('.material-symbols-outlined');
+            
+            list.classList.toggle('hidden');
+            if (list.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
             }
         });
-    </script>
-</aside>
+    });
+
+    // Auto-open active section
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll('nav a');
+    
+    links.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            // Style active link
+            link.classList.remove('text-[#5F6368]', 'border-transparent');
+            link.classList.add('text-[#1967D2]', 'border-[#1967D2]', 'bg-[#E8F0FE]', 'font-medium');
+            
+            // Open parent list
+            const list = link.closest('ul');
+            if (list) {
+                list.classList.remove('hidden');
+                // Rotate icon
+                const group = list.closest('.group');
+                const icon = group.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    });
+</script>
