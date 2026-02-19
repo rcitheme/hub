@@ -12,15 +12,37 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
+// Map slugs to readable names
+const categoryNames = {
+    'design': 'Design System',
+    'plugins': 'Plugins',
+    'themes': 'Themes',
+    'workflow': 'Workflow',
+    'docs': 'Docs'
+};
+
+const slugs = entry.slug.split('/');
+const breadcrumbs = slugs.map((slug, index) => {
+    const path = '/docs/' + slugs.slice(0, index + 1).join('/');
+    const label = categoryNames[slug] || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ');
+    return { path, label };
+});
+// Remove the last item (current page) as it's handled separately in the UI
+breadcrumbs.pop();
+
 // Pagination Logic
 const allDocs = await getCollection('docs');
 const orderedSlugs = [
     '01-getting-started',
+    'themes/intro',
     'themes/lenin',
-    'components/news-slider',
-    'components/preheader',
+    'plugins/intro',
+    'plugins/news-slider',
+    'plugins/preheader',
+    'design/intro',
     'design/colors',
     'design/typography',
+    'workflow/intro',
     'workflow/git-standards'
 ];
 
@@ -40,6 +62,12 @@ const next = nextSlug ? allDocs.find(d => d.slug === nextSlug) : null;
           <a href="/" class="hover:text-[#202124] transition-colors">Home</a>
           <span class="mx-2">/</span>
           <a href="/docs/01-getting-started" class="hover:text-[#202124] transition-colors">Docs</a>
+          {breadcrumbs.map(crumb => (
+            <>
+                <span class="mx-2">/</span>
+                <a href={crumb.path.endsWith('intro') ? crumb.path : crumb.path + '/intro'} class="hover:text-[#202124] transition-colors">{crumb.label}</a>
+            </>
+          ))}
           <span class="mx-2">/</span>
           <span class="text-[#202124] font-medium truncate">{entry.data.title}</span>
       </nav>

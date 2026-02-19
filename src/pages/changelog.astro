@@ -54,8 +54,8 @@ const changelog = [
         <a href="/docs/01-getting-started" class="inline-flex items-center px-4 py-2 border border-[#DADCE0] rounded-full text-[14px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors">
             View docs
         </a>
-        <a href="https://twitter.com/marxistcom" target="_blank" class="inline-flex items-center px-4 py-2 border border-[#DADCE0] rounded-full text-[14px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors">
-            Follow us on X
+        <a href="https://marxist.com" target="_blank" class="inline-flex items-center px-4 py-2 border border-[#DADCE0] rounded-full text-[14px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors">
+            Visit Marxist.com
         </a>
     </div>
 
@@ -64,7 +64,7 @@ const changelog = [
     <!-- WIP Banner -->
     <div class="bg-[#E8F0FE] text-[#1967D2] px-6 py-3 flex items-center rounded-lg text-[13px] font-medium tracking-wide mb-16">
         <span class="material-symbols-outlined text-[18px] mr-2" style="font-variation-settings: 'FILL' 1;">info</span>
-        <span>New versions are rolled out gradually and may take a few days to reach all users.</span>
+        <span>The RCI Developer Hub is the central resource for all Revolutionary Communist International digital tools and standards.</span>
     </div>
 
     
@@ -74,9 +74,9 @@ const changelog = [
         <div class="text-[14px] font-bold text-[#202124]">Description</div>
     </div>
 
-    <div class="space-y-0">
+    <div class="space-y-6">
       {changelog.map((entry) => (
-        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start py-12 border-b border-[#F1F3F4] last:border-0">
+        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start py-8 border-b border-[#F1F3F4] last:border-0">
           
           <!-- Left Column: Version & Date -->
           <div>
@@ -85,14 +85,14 @@ const changelog = [
           </div>
 
           <!-- Right Column: Content -->
-          <div class="w-full">
+          <div class="w-full bg-[#F8F9FA] rounded-[24px] p-8">
             <h2 class="text-[20px] font-medium text-[#202124] mb-2">{entry.title}</h2>
             <p class="text-[14px] text-[#5F6368] mb-8 max-w-[600px]">{entry.desc}</p>
             
             <div class="space-y-0">
               {Object.entries(entry.changes).map(([type, items]) => (
-                <div class="border-t border-[#F1F3F4] first:border-0">
-                  <details class="group open:bg-[#F8F9FA] transition-colors -mx-4 px-4 rounded-lg">
+                <div class="border-t border-[#E0E0E0] first:border-0">
+                  <details class="group open:bg-transparent transition-colors -mx-4 px-4 rounded-lg" open>
                     <summary class="flex items-center justify-between py-4 cursor-pointer list-none text-[14px] font-medium text-[#202124] hover:text-black transition-colors">
                       <span>{type} <span class="text-[#5F6368] font-normal">({items.length})</span></span>
                       <span class="material-symbols-outlined text-[20px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
