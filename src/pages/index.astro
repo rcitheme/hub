@@ -1,80 +1,104 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <MainLayout title="Home">
-  <div class="space-y-12">
-    <!-- Hero Section -->
-    <section>
-      <h1 class="text-4xl font-condensed font-bold text-gray-900 mb-4">
-        RCI Developer Hub
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl leading-relaxed">
-        The central resource for RCI digital assets, documentation, and tooling. 
-        Build faster with our design system and component libraries.
-      </p>
-    </section>
-
-    <!-- Cards Grid -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <Card
-        title="Lenin 2.0 Theme"
-        description="Documentation for the core RCI WordPress theme, including patterns, blocks, and customization guides."
-        href="#"
-        icon="icon-theme" 
-      />
-      <Card
-        title="Brand Assets"
-        description="Official logos, color palettes, and typography guidelines for all RCI digital properties."
-        href="#"
-        icon="icon-brand"
-      />
-      <Card
-        title="Plugin Repository"
-        description="A catalog of approved WordPress plugins, including RCI News Slider and custom integrations."
-        href="#"
-        icon="icon-plugin"
-      />
-      <Card
-        title="API Documentation"
-        description="Endpoints and authentication guides for key RCI services and data feeds."
-        href="#"
-        icon="icon-api"
-      />
-      <Card
-        title="Security Guidelines"
-        description="Best practices for securing RCI applications and maintaining compliance."
-        href="#"
-        icon="icon-shield"
-      />
-      <Card
-        title="Deployment Workflows"
-        description="CI/CD pipelines and deployment strategies for our infrastructure."
-        href="#"
-        icon="icon-deploy"
-      />
-    </section>
-
-    <!-- Optional: Recent Updates or Changelog Section akin to Google Antigravity example -->
-    <section class="mt-16 border-t border-gray-200 pt-8">
-        <h2 class="text-2xl font-condensed font-bold text-gray-900 mb-6">Recent Updates</h2>
-        <div class="space-y-8">
-            <div class="flex gap-4">
-                <div class="text-sm font-bold text-gray-500 min-w-[100px]">Feb 18, 2026</div>
-                <div>
-                    <h3 class="font-bold text-gray-900">RCI News Slider v2.4</h3>
-                    <p class="text-gray-600 mt-1">Updated author metadata and fixed responsive layout issues.</p>
-                </div>
-            </div>
-             <div class="flex gap-4">
-                <div class="text-sm font-bold text-gray-500 min-w-[100px]">Feb 10, 2026</div>
-                <div>
-                    <h3 class="font-bold text-gray-900">Lenin Theme Patch</h3>
-                    <p class="text-gray-600 mt-1">Minor CSS fixes for navigation menus.</p>
-                </div>
-            </div>
+    
+    <!-- Hero Section: Visual Identity -->
+    <div class="relative pt-12 pb-24 border-b border-black">
+        <h1 class="font-condensed font-bold text-[18vw] leading-[0.8] text-black uppercase tracking-tighter select-none">
+            RCI<br>
+            Developer<br>
+            Hub
+        </h1>
+        
+        <div class="absolute top-12 right-0 w-[300px] text-right hidden lg:block">
+            <p class="text-[18px] font-medium leading-tight text-black mb-6">
+                The digital arsenal for the<br>
+                Revolutionary Communist<br>
+                International.
+            </p>
+            <a href="/docs/01-getting-started" class="inline-flex items-center justify-center px-8 py-3 bg-[#ea1917] text-white font-condensed font-bold text-xl uppercase hover:bg-black transition-colors">
+                Start Building
+            </a>
         </div>
-    </section>
-  </div>
+    </div>
+
+    <!-- Sharp Navigation Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-black">
+        
+        <!-- Cell 1: Lenin Theme -->
+        <a href="/docs/02-lenin-theme" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">palette</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">01</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Lenin Theme</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">The core FSE theme for RCI sites.</p>
+            </div>
+        </a>
+
+        <!-- Cell 2: Components -->
+        <a href="/docs/components/news-slider" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">widgets</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">02</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Components</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">News Slider, Preheader, and more.</p>
+            </div>
+        </a>
+
+        <!-- Cell 3: Design System -->
+        <a href="/docs/design/colors" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">format_paint</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">03</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Design System</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Colors, Typography, and Identity.</p>
+            </div>
+        </a>
+
+        <!-- Cell 4: Workflow -->
+        <a href="/docs/workflow/git-standards" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">commit</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">04</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Workflow</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Git standards and deployment.</p>
+            </div>
+        </a>
+
+         <!-- Cell 5: Download -->
+         <a href="/download" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">download</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">05</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Download</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Get the latest releases.</p>
+            </div>
+        </a>
+
+        <!-- Cell 6: Changelog -->
+        <a href="/changelog" class="group block p-12 border-r border-b border-black hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">history</span>
+                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">06</span>
+            </div>
+            <div>
+                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Changelog</h2>
+                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Track project history.</p>
+            </div>
+        </a>
+
+    </div>
+
 </MainLayout>
