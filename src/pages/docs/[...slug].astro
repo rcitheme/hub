@@ -60,8 +60,7 @@ const next = nextSlug ? allDocs.find(d => d.slug === nextSlug) : null;
       <!-- Breadcrumbs -->
       <nav class="flex items-center text-[13px] text-[#5F6368] mb-8 select-none">
           <a href="/" class="hover:text-[#202124] transition-colors">Home</a>
-          <span class="material-symbols-outlined text-[10px] text-[#9AA0A6] mx-2">chevron_right</span>
-          <a href="/docs/01-getting-started" class="hover:text-[#202124] transition-colors">Docs</a>
+          <a href="/" class="hover:text-[#202124] transition-colors">Home</a>
           {breadcrumbs.map(crumb => (
             <>
                 <span class="material-symbols-outlined text-[10px] text-[#9AA0A6] mx-2">chevron_right</span>
