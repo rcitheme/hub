@@ -6,16 +6,17 @@ interface Props {
 const { headings = [] } = Astro.props;
 ---
 
-<aside class="w-[220px] fixed top-16 bottom-0 right-0 overflow-y-auto hidden xl:block z-30 pr-6">
+<aside class="w-[240px] fixed top-24 bottom-0 right-0 overflow-y-auto hidden xl:block z-30 pr-6">
   <div class="p-6">
     <h5 class="text-[12px] font-bold text-[#5F6368] uppercase tracking-wider mb-4">On this page</h5>
-    <ul class="space-y-2 border-l border-[#DADCE0]">
+    <ul class="space-y-0 border-l border-[#DADCE0]">
       {headings.map((heading) => (
         <li>
           <a 
-            href={`#${heading.slug}`} 
+            href={`#${heading.slug}`}
+            data-slug={heading.slug}
             class:list={[
-              "block pl-4 text-[13px] text-[#5F6368] hover:text-[#202124] border-l border-transparent hover:border-[#5F6368] -ml-[1px] transition-colors",
+              "toc-link block py-1.5 pl-4 text-[13px] text-[#5F6368] hover:text-[#202124] border-l border-transparent hover:border-[#9AA0A6] -ml-[1px] transition-colors",
               heading.depth === 3 ? "pl-8" : ""
             ]}
           >
@@ -26,3 +27,43 @@ const { headings = [] } = Astro.props;
     </ul>
   </div>
 </aside>
+
+<script>
+  // Active Scroll Spy
+  const observerOptions = {
+    root: null,
+    rootMargin: "-100px 0px -66% 0px", // High trigger point
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        if (id) {
+            updateActiveLink(id);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Track all headers
+  document.querySelectorAll("h2, h3").forEach((heading) => {
+    observer.observe(heading);
+  });
+
+  function updateActiveLink(id) {
+    // Remove active from all
+    document.querySelectorAll(".toc-link").forEach((link) => {
+        link.classList.remove("text-[#202124]", "border-[#202124]", "font-medium");
+        link.classList.add("text-[#5F6368]", "border-transparent");
+    });
+
+    // Add to current
+    const activeLink = document.querySelector(`.toc-link[data-slug="${id}"]`);
+    if (activeLink) {
+        activeLink.classList.remove("text-[#5F6368]", "border-transparent");
+        activeLink.classList.add("text-[#202124]", "border-[#202124]", "font-medium");
+    }
+  }
+</script>

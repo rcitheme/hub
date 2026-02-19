@@ -5,29 +5,96 @@ const currentPath = Astro.url.pathname;
 ---
 
 <aside class="w-[260px] fixed top-16 bottom-0 left-0 overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block z-30">
-    <nav class="space-y-8 pt-6 px-6 pb-6">
+    <nav class="space-y-4 pt-6 px-4 pb-6">
         
-        <!-- Section: Documentation -->
-        <div class="space-y-3">
-            <div class="text-[13px] font-medium text-[#202124]">Documentation</div>
-            <ul class="space-y-0 border-l border-[#DADCE0] ml-1.5 pl-4">
-                <li><a href="/docs/01-getting-started" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Overview</a></li>
-                <li><a href="/docs/themes/lenin" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Lenin Theme</a></li>
-                <li><a href="/docs/design/colors" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Colors</a></li>
-                <li><a href="/docs/design/typography" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Typography</a></li>
-                <li><a href="/docs/components/news-slider" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">News Slider</a></li>
-                <li><a href="/docs/components/preheader" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Preheader</a></li>
-                <li><a href="/docs/workflow/git-standards" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Git Standards</a></li>
+        <!-- Getting Started -->
+        <details class="group" open>
+            <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Getting Started</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/docs/01-getting-started" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Overview</a></li>
             </ul>
-        </div>
+        </details>
 
-        <!-- Section: Resources -->
-        <div class="space-y-3">
-            <div class="text-[13px] font-medium text-[#202124]">Resources</div>
-            <ul class="space-y-0 border-l border-[#DADCE0] ml-1.5 pl-4">
-                <li><a href="/download" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Downloads</a></li>
-                <li><a href="/changelog" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Changelog</a></li>
+        <!-- Themes -->
+        <details class="group">
+            <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Themes</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+             <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/docs/themes/lenin" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Lenin Theme</a></li>
             </ul>
-        </div>
+        </details>
+
+        <!-- Plugins -->
+        <details class="group">
+             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Plugins</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/docs/components/news-slider" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">News Slider</a></li>
+                <li><a href="/docs/components/preheader" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Preheader</a></li>
+            </ul>
+        </details>
+
+        <!-- Design System -->
+        <details class="group">
+             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Design System</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/docs/design/colors" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Colors</a></li>
+                <li><a href="/docs/design/typography" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Typography</a></li>
+            </ul>
+        </details>
+
+        <!-- Workflow -->
+        <details class="group">
+             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Workflow</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/docs/workflow/git-standards" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Git Standards</a></li>
+            </ul>
+        </details>
+
+        <!-- Resources -->
+         <details class="group">
+             <summary class="flex items-center justify-between py-2 px-2 text-[13px] font-medium text-[#202124] cursor-pointer hover:bg-[#F1F3F4] rounded-md select-none transition-colors">
+                <span>Resources</span>
+                <span class="material-symbols-outlined text-[18px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <ul class="space-y-1 mt-1 ml-2 border-l border-[#DADCE0] pl-2">
+                <li><a href="/download" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Downloads</a></li>
+                <li><a href="/changelog" class="block w-full py-1.5 pl-3 text-[13px] text-[#5F6368] hover:text-[#202124] border-l-2 border-transparent hover:border-[#DADCE0] -ml-[9px] transition-colors rounded-r-md">Changelog</a></li>
+            </ul>
+        </details>
+
     </nav>
+
+    <script>
+        // Auto-open active section
+        const currentPath = window.location.pathname;
+        const links = document.querySelectorAll('aside nav a');
+        
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                // Style active link
+                link.classList.remove('text-[#5F6368]', 'border-transparent');
+                link.classList.add('text-[#1967D2]', 'border-[#1967D2]', 'bg-[#E8F0FE]', 'font-medium');
+                
+                // Open parent details
+                const details = link.closest('details');
+                if (details) {
+                    details.open = true;
+                }
+            }
+        });
+    </script>
 </aside>

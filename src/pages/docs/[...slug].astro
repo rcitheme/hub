@@ -11,18 +11,66 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Pagination Logic
+const allDocs = await getCollection('docs');
+const orderedSlugs = [
+    '01-getting-started',
+    'themes/lenin',
+    'components/news-slider',
+    'components/preheader',
+    'design/colors',
+    'design/typography',
+    'workflow/git-standards'
+];
+
+const currentIndex = orderedSlugs.indexOf(entry.slug);
+const prevSlug = currentIndex > 0 ? orderedSlugs[currentIndex - 1] : null;
+const nextSlug = currentIndex < orderedSlugs.length - 1 ? orderedSlugs[currentIndex + 1] : null;
+
+const prev = prevSlug ? allDocs.find(d => d.slug === prevSlug) : null;
+const next = nextSlug ? allDocs.find(d => d.slug === nextSlug) : null;
 ---
 
 <MainLayout title={entry.data.title} headings={await entry.render().then(r => r.headings)}>
-  <article class="prose prose-gray max-w-none">
-    <div class="mb-8 border-b border-[#E0E0E0] pb-8">
-        <h1 class="text-4xl font-condensed font-bold text-gray-900 mb-4">{entry.data.title}</h1>
-        <p class="text-xl text-gray-600 leading-relaxed">{entry.data.description}</p>
-    </div>
-    <div class="content-body">
-        <Content />
-    </div>
-  </article>
+  <div class="max-w-[800px] mx-auto">
+      
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center text-[13px] text-[#5F6368] mb-8 select-none">
+          <a href="/" class="hover:text-[#202124] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/docs/01-getting-started" class="hover:text-[#202124] transition-colors">Docs</a>
+          <span class="mx-2">/</span>
+          <span class="text-[#202124] font-medium truncate">{entry.data.title}</span>
+      </nav>
+
+      <article class="prose prose-gray max-w-none">
+        <div class="mb-12 border-b border-[#DADCE0] pb-8">
+            <h1 class="text-[40px] leading-tight font-condensed font-bold text-[#202124] mb-4 tracking-tight">{entry.data.title}</h1>
+            <p class="text-[20px] text-[#5F6368] leading-relaxed font-light">{entry.data.description}</p>
+        </div>
+        <div class="content-body">
+            <Content />
+        </div>
+      </article>
+
+      <!-- Pagination -->
+      <div class="mt-20 pt-8 border-t border-[#DADCE0] grid grid-cols-2 gap-4">
+          {prev ? (
+              <a href={`/docs/${prev.slug}`} class="group flex flex-col items-start p-4 -ml-4 rounded-lg hover:bg-[#F8F9FA] transition-colors">
+                  <span class="text-[12px] font-medium text-[#5F6368] mb-1 group-hover:text-[#1967D2] transition-colors">Previous</span>
+                  <span class="text-[16px] font-medium text-[#202124] group-hover:text-[#1967D2] transition-colors">{prev.data.title}</span>
+              </a>
+          ) : <div></div>}
+
+          {next ? (
+              <a href={`/docs/${next.slug}`} class="group flex flex-col items-end p-4 -mr-4 rounded-lg hover:bg-[#F8F9FA] transition-colors text-right">
+                  <span class="text-[12px] font-medium text-[#5F6368] mb-1 group-hover:text-[#1967D2] transition-colors">Next</span>
+                  <span class="text-[16px] font-medium text-[#202124] group-hover:text-[#1967D2] transition-colors">{next.data.title}</span>
+              </a>
+          ) : <div></div>}
+      </div>
+  </div>
 </MainLayout>
 
 <style is:global>
