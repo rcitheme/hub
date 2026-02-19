@@ -48,42 +48,67 @@ const changelog = [
 ---
 
 <MainLayout title="Changelog">
-  <div class="max-w-[1000px] pt-8 mx-auto">
-    <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-20 leading-[1.1]">Changelog</h1>
+  <div class="max-w-[1000px] pt-4 mx-auto">
+    <!-- Header Actions -->
+    <div class="flex justify-end gap-3 mb-10">
+        <a href="/docs/01-getting-started" class="inline-flex items-center px-4 py-2 border border-[#DADCE0] rounded-full text-[14px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors">
+            View docs
+        </a>
+        <a href="https://twitter.com/marxistcom" target="_blank" class="inline-flex items-center px-4 py-2 border border-[#DADCE0] rounded-full text-[14px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors">
+            Follow us on X
+        </a>
+    </div>
+
+    <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-4 leading-[1.1]">RCI Developer Hub<br>Changelog</h1>
     
-    <div class="space-y-12">
+    <!-- WIP Banner -->
+    <div class="bg-[#E8F0FE] text-[#1967D2] px-6 py-3 flex items-center rounded-lg text-[13px] font-medium tracking-wide mb-16">
+        <span class="material-symbols-outlined text-[18px] mr-2" style="font-variation-settings: 'FILL' 1;">info</span>
+        <span>New versions are rolled out gradually and may take a few days to reach all users.</span>
+    </div>
+
+    
+    <!-- Table Headers (Visual only) -->
+    <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 mb-6 border-b border-[#F1F3F4] pb-2">
+        <div class="text-[14px] font-bold text-[#202124]">Version</div>
+        <div class="text-[14px] font-bold text-[#202124]">Description</div>
+    </div>
+
+    <div class="space-y-0">
       {changelog.map((entry) => (
-        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start py-12 border-b border-[#F1F3F4] last:border-0">
           
           <!-- Left Column: Version & Date -->
-          <div class="sticky top-24">
-            <div class="text-[14px] font-bold text-[#202124] mb-1">{entry.version}</div>
+          <div>
+            <div class="text-[14px] font-medium text-[#202124] mb-1">{entry.version}</div>
             <div class="text-[14px] text-[#5F6368]">{entry.date}</div>
           </div>
 
-          <!-- Right Column: Card -->
-          <div class="bg-[#F8F9FA] rounded-[24px] p-8 w-full">
-            <h2 class="text-[24px] font-medium text-[#202124] mb-4">{entry.title}</h2>
-            <p class="text-[16px] text-[#3C4043] leading-relaxed mb-8">{entry.desc}</p>
+          <!-- Right Column: Content -->
+          <div class="w-full">
+            <h2 class="text-[20px] font-medium text-[#202124] mb-2">{entry.title}</h2>
+            <p class="text-[14px] text-[#5F6368] mb-8 max-w-[600px]">{entry.desc}</p>
             
-            <div class="space-y-4">
+            <div class="space-y-0">
               {Object.entries(entry.changes).map(([type, items]) => (
-                <details class="group border border-[#DADCE0] rounded-lg bg-white open:bg-white transition-colors">
-                  <summary class="flex items-center justify-between p-4 cursor-pointer list-none text-[14px] font-medium text-[#202124] hover:bg-[#F1F3F4] rounded-lg group-open:rounded-b-none transition-colors">
-                    <span>{type} <span class="text-[#5F6368] font-normal">({items.length})</span></span>
-                    <span class="material-symbols-outlined text-[20px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
-                  </summary>
-                  <div class="p-4 pt-0 border-t border-transparent group-open:border-[#DADCE0]">
-                    <ul class="space-y-3 mt-4">
-                      {items.map(item => (
-                        <li class="flex items-start gap-3 text-[14px] text-[#3C4043]">
-                           <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3C4043] flex-shrink-0"></span>
-                           <span class="leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </details>
+                <div class="border-t border-[#F1F3F4] first:border-0">
+                  <details class="group open:bg-[#F8F9FA] transition-colors -mx-4 px-4 rounded-lg">
+                    <summary class="flex items-center justify-between py-4 cursor-pointer list-none text-[14px] font-medium text-[#202124] hover:text-black transition-colors">
+                      <span>{type} <span class="text-[#5F6368] font-normal">({items.length})</span></span>
+                      <span class="material-symbols-outlined text-[20px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="pb-4">
+                      <ul class="space-y-2">
+                        {items.map(item => (
+                          <li class="flex items-start gap-3 text-[14px] text-[#3C4043]">
+                             <span class="mt-2 w-1 h-1 rounded-full bg-[#3C4043] flex-shrink-0"></span>
+                             <span class="leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </details>
+                </div>
               ))}
             </div>
 

@@ -5,113 +5,29 @@ const currentPath = Astro.url.pathname;
 ---
 
 <aside class="w-[260px] fixed top-16 bottom-0 left-0 overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block z-30">
-    <nav class="space-y-6 pt-4">
+    <nav class="space-y-8 pt-6 px-6 pb-6">
         
-        <!-- Getting Started -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Getting Started
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/docs/01-getting-started" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">flag</span>
-                        Overview
-                    </a>
-                </li>
+        <!-- Section: Documentation -->
+        <div class="space-y-3">
+            <div class="text-[13px] font-medium text-[#202124]">Documentation</div>
+            <ul class="space-y-0 border-l border-[#DADCE0] ml-1.5 pl-4">
+                <li><a href="/docs/01-getting-started" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Overview</a></li>
+                <li><a href="/docs/themes/lenin" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Lenin Theme</a></li>
+                <li><a href="/docs/design/colors" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Colors</a></li>
+                <li><a href="/docs/design/typography" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Typography</a></li>
+                <li><a href="/docs/components/news-slider" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">News Slider</a></li>
+                <li><a href="/docs/components/preheader" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Preheader</a></li>
+                <li><a href="/docs/workflow/git-standards" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Git Standards</a></li>
             </ul>
         </div>
 
-        <!-- Themes -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Themes
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/docs/themes/lenin" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">web</span>
-                        Lenin Theme
-                    </a>
-                </li>
+        <!-- Section: Resources -->
+        <div class="space-y-3">
+            <div class="text-[13px] font-medium text-[#202124]">Resources</div>
+            <ul class="space-y-0 border-l border-[#DADCE0] ml-1.5 pl-4">
+                <li><a href="/download" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Downloads</a></li>
+                <li><a href="/changelog" class="block py-1.5 text-[14px] text-[#5F6368] hover:text-[#1967D2] transition-colors">Changelog</a></li>
             </ul>
         </div>
-
-        <!-- Design System -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Design System
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/docs/design/colors" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">palette</span>
-                        Colors
-                    </a>
-                </li>
-                <li>
-                    <a href="/docs/design/typography" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">text_fields</span>
-                        Typography
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Components -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Components
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/docs/components/news-slider" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">view_carousel</span>
-                        News Slider
-                    </a>
-                </li>
-                <li>
-                    <a href="/docs/components/preheader" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">label</span>
-                        Preheader
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Workflow -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Workflow
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/docs/workflow/git-standards" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">commit</span>
-                        Git Standards
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Resources -->
-        <div>
-            <div class="px-5 mb-2 text-[11px] font-medium text-[#5F6368] uppercase tracking-wider">
-                Resources
-            </div>
-            <ul class="space-y-0.5">
-                <li>
-                    <a href="/download" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">download</span>
-                        Downloads
-                    </a>
-                </li>
-                <li>
-                    <a href="/changelog" class="flex items-center gap-3 px-5 py-1.5 text-[13px] text-[#202124] hover:bg-[#E8EAED] transition-colors rounded-r-full mr-2">
-                        <span class="material-symbols-outlined text-[18px] text-[#5F6368]" style="font-variation-settings: 'wght' 300;">history</span>
-                        Changelog
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </nav>
 </aside>

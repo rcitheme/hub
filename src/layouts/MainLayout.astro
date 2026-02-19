@@ -43,10 +43,10 @@ const { title, headings } = Astro.props;
     </header>
 
     <!-- Main Content Grid -->
-    <div class="pt-16 grid grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] min-h-screen">
+    <div class="pt-16 max-w-[1440px] mx-auto grid grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] min-h-screen border-x border-[#DADCE0] bg-white">
       
-      <!-- Left Sidebar (Fixed) -->
-      <aside class="bg-[#F8F9FA] border-r border-[#DADCE0] fixed top-16 bottom-0 w-[280px] overflow-y-auto z-40">
+      <!-- Left Sidebar (Sticky) -->
+      <aside class="bg-[#F8F9FA] border-r border-[#DADCE0] sticky top-16 self-start h-[calc(100vh-64px)] overflow-y-auto z-40 hidden md:block">
           <LeftSidebar />
       </aside>
 
