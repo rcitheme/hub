@@ -3,81 +3,71 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 const changelog = [
   {
-    date: "Feb 18, 2026",
+    date: "February 18, 2026",
     version: "2.4.0",
     product: "RCI News Slider",
-    sections: {
-      "Improvements": [
-        "Updated author URI to marxist.com in plugin header to align with organizational standards.",
-        "Added support for WEBP image formats in slide background for better performance."
-      ],
-      "Fixes": [
-        "Fixed carousel responsiveness on mobile viewport < 375px where content was overflowing."
-      ]
-    }
+    desc: "Maintenance release focusing on performance and attribution standards.",
+    notes: [
+      "Updated author URI to marxist.com in plugin header.",
+      "Fixed carousel responsiveness on mobile viewport < 375px.",
+      "Added support for WEBP image formats in slide background."
+    ]
   },
   {
-    date: "Feb 10, 2026",
+    date: "February 10, 2026",
     version: "2.1.0",
     product: "Lenin Theme",
-    sections: {
-      "Improvements": [
-         "Refined H1-H6 typography scaling in theme.json for better readability on large screens.",
-         "Added 'Brand Accent' (#fef6f5) to color palette tokens."
-      ],
-      "Fixes": [
-         "Fixed navigation menu z-index issue on overlay."
-      ]
-    }
+    desc: "Refinement of typographic scales and core color tokens.",
+    notes: [
+      "Refined H1-H6 typography scaling in theme.json.",
+      "Added 'Brand Accent' (#fef6f5) to color palette.",
+      "Fixed navigation menu z-index issue on overlay."
+    ]
   },
   {
-    date: "Jan 12, 2026",
+    date: "January 12, 2026",
     version: "1.0.0",
     product: "RCI Preheader",
-    sections: {
-      "New Features": [
-         "Initial release of the RCI Preheader plugin.",
-         "Implemented Priority Tree logic: Manual > Hub > Category.",
-         "Added meta fields for custom label and custom URL."
-      ]
-    }
+    desc: "Initial launch of the preheader logic engine.",
+    notes: [
+      "Implemented Priority Tree logic: Manual > Hub > Category.",
+      "Added meta fields for custom label and custom URL."
+    ]
   }
 ];
 ---
 
 <MainLayout title="Changelog">
-  <div class="max-w-[1000px] mx-auto pt-8">
-    <h1 class="text-[40px] font-condensed font-bold text-[#202124] mb-16">Changelog</h1>
+  <div class="max-w-[1000px] pt-8">
+    <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-20 leading-[1.1]">Changelog</h1>
     
-    <div class="space-y-16">
-      {changelog.map((entry) => (
-        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start">
+    <div class="space-y-16 border-l-0"> <!-- No vertical line on parent -->
+      {changelog.map((entry, index) => (
+        <div class={`grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 ${index !== 0 ? 'border-t border-[#DADCE0] pt-16' : ''}`}>
           
-          <!-- Left Column: Version & Date -->
-          <div class="text-right md:text-left sticky top-24">
-             <div class="text-[24px] font-bold text-[#202124] mb-1">{entry.version}</div>
-             <div class="text-[14px] font-medium text-[#5F6368]">{entry.date}</div>
-             <div class="mt-2 text-[14px] font-medium text-[#ea1917]">{entry.product}</div>
+          <!-- Left: Version & Date -->
+          <div>
+            <h2 class="text-[32px] font-normal text-[#202124] mb-2">{entry.version}</h2>
+            <div class="text-[16px] text-[#5F6368] mb-1">{entry.date}</div>
+            <div class="text-[14px] font-bold text-[#ea1917] uppercase tracking-wide">{entry.product}</div>
           </div>
 
-          <!-- Right Column: Card Content -->
-          <div class="bg-white border border-[#DADCE0] rounded-[24px] p-8">
+          <!-- Right: Content -->
+          <div>
+            <p class="text-[18px] text-[#202124] leading-relaxed mb-8">
+                {entry.desc}
+            </p>
             
-            {Object.entries(entry.sections).map(([sectionTitle, items]) => (
-              <div class="mb-8 last:mb-0">
-                <h3 class="text-[14px] font-bold text-[#5F6368] uppercase tracking-wider mb-4">{sectionTitle}</h3>
-                <ul class="space-y-3">
-                  {items.map(item => (
-                    <li class="flex items-start gap-3 text-[16px] text-[#3C4043] leading-relaxed">
-                      <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3C4043] flex-shrink-0"></span>
-                      <span>{item}</span>
+            <ul class="space-y-4">
+                {entry.notes.map(note => (
+                    <li class="flex items-start gap-4 text-[16px] text-[#3C4043]">
+                        <span class="material-symbols-outlined text-[20px] text-[#ea1917] mt-0.5">check</span>
+                        <span class="flex-1 border-b border-[#DADCE0] pb-4 last:border-0">{note}</span>
                     </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
+                ))}
+            </ul>
           </div>
+
         </div>
       ))}
     </div>

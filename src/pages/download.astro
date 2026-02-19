@@ -1,67 +1,130 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const plugins = [
+const sections = [
   {
-    name: "RCI News Slider",
-    version: "2.4.0",
-    description: "Responsive carousel block for news items. Supports manual kicker override and category fallback.",
-    icon: "view_carousel",
-    updated: "Feb 18, 2026",
-    id: "news-slider"
+    title: "Plugins",
+    items: [
+      {
+        name: "News Slider",
+        version: "2.4.0",
+        type: "Plugin",
+        icon: "view_carousel",
+        desc: "Responsive carousel for news."
+      },
+      {
+        name: "Preheader",
+        version: "1.0.0",
+        type: "Plugin",
+        icon: "label",
+        desc: "Priority logic for post kickers."
+      }
+    ]
   },
   {
-    name: "RCI Preheader",
-    version: "1.0.0",
-    description: "Logic engine for the 'Preheader' meta field. Implements the Priority Tree (Manual > Hub > Category).",
-    icon: "label",
-    updated: "Jan 12, 2026",
-    id: "preheader"
-  },
-  {
-    name: "Lenin Theme",
-    version: "2.1.0",
-    description: "The core FSE theme for RCI network sites. Includes all design tokens and block patterns.",
-    icon: "palette",
-    updated: "Feb 10, 2026",
-    id: "lenin-theme"
+    title: "Themes",
+    items: [
+      {
+        name: "Lenin Theme",
+        version: "2.1.0",
+        type: "FSE Theme",
+        icon: "palette",
+        desc: "Core design system theme."
+      }
+    ]
   }
 ];
 ---
 
 <MainLayout title="Download">
-  <div class="max-w-[900px]">
-    <h1 class="text-[40px] font-condensed font-bold text-[#202124] mb-4">Downloads</h1>
-    <p class="text-[16px] text-[#5F6368] mb-12 max-w-[700px] leading-relaxed">
-      Browse and download the official plugins and themes for the RCI ecosystem. 
-      All components are verified for the Lenin 2.0 Design System.
-    </p>
+  <div class="max-w-[1200px] pt-8">
+    <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-16 leading-[1.1]">
+      Download RCI Components<br />
+      for WordPress
+    </h1>
 
-    <div class="grid grid-cols-1 gap-6">
-      {plugins.map((plugin) => (
-        <div class="bg-white border border-[#DADCE0] rounded-[16px] p-6 hover:bg-[#F8F9FA] transition-colors duration-200 group">
-          <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-            
-            <div class="w-12 h-12 rounded-[12px] bg-[#F1F3F4] flex items-center justify-center text-[#5F6368] group-hover:bg-white group-hover:text-[#ea1917] transition-colors border border-transparent group-hover:border-[#DADCE0]">
-              <span class="material-symbols-outlined text-[24px]">{plugin.icon}</span>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 border-t border-[#DADCE0] pt-12">
+      <!-- Left Label -->
+      <div class="text-[16px] font-medium text-[#202124]">
+        Select component
+      </div>
 
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-3 mb-1">
-                 <h3 class="text-[18px] font-medium text-[#202124] truncate">{plugin.name}</h3>
-                 <span class="text-[11px] font-bold text-[#5F6368] bg-[#F1F3F4] px-2 py-0.5 rounded-full">v{plugin.version}</span>
-              </div>
-              <p class="text-[14px] text-[#5F6368] leading-relaxed mb-2 max-w-[600px]">{plugin.description}</p>
-              <div class="text-[12px] text-[#9AA0A6]">Last updated: {plugin.updated}</div>
-            </div>
-
-            <a href={`/download/${plugin.id}`} class="flex-shrink-0 bg-[#ea1917] text-white px-6 py-2 rounded-full text-[14px] font-medium hover:bg-[#d91917] transition-colors flex items-center gap-2">
-              Download
+      <!-- Right Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        {/* News Slider Column */}
+        <div class="flex flex-col h-full border-r border-[#DADCE0] pr-8 last:border-0">
+          <div class="flex items-center gap-3 mb-6">
+             <span class="material-symbols-outlined text-[32px] text-[#202124]">view_carousel</span>
+             <h3 class="text-[20px] font-medium text-[#202124]">News Slider</h3>
+          </div>
+          
+          <div class="mt-auto space-y-4">
+            <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+               <span class="text-[14px]">Download v2.4.0</span>
             </a>
+             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+               <span class="text-[14px]">View changelog</span>
+            </a>
+          </div>
 
+          <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
+             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
+             WordPress 6.4+, PHP 8.0
           </div>
         </div>
-      ))}
+
+        {/* Preheader Column */}
+        <div class="flex flex-col h-full border-r border-[#DADCE0] pr-8 last:border-0">
+          <div class="flex items-center gap-3 mb-6">
+             <span class="material-symbols-outlined text-[32px] text-[#202124]">label</span>
+             <h3 class="text-[20px] font-medium text-[#202124]">Preheader</h3>
+          </div>
+          
+          <div class="mt-auto space-y-4">
+             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+               <span class="text-[14px]">Download v1.0.0</span>
+            </a>
+             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+               <span class="text-[14px]">View changelog</span>
+            </a>
+          </div>
+
+           <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
+             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
+             WordPress 6.0+
+          </div>
+        </div>
+
+        {/* Lenin Theme Column */}
+        <div class="flex flex-col h-full last:border-0 border-r border-[#DADCE0]">
+          <div class="flex items-center gap-3 mb-6">
+             <span class="material-symbols-outlined text-[32px] text-[#202124]">palette</span>
+             <h3 class="text-[20px] font-medium text-[#202124]">Lenin Theme</h3>
+          </div>
+          
+          <div class="mt-auto space-y-4">
+             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+               <span class="text-[14px]">Download v2.1.0</span>
+            </a>
+             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+               <span class="text-[14px]">View changelog</span>
+            </a>
+          </div>
+
+           <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
+             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
+             WordPress 6.6+ (FSE)
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </MainLayout>
