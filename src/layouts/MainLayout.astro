@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -8,11 +9,10 @@ interface Props {
 const { title } = Astro.props;
 
 const navItems = [
-  { label: "Home", href: "/", active: true }, // Logic for active state could be improved
-  { label: "Getting Started", href: "#", active: false },
-  { label: "Brand Assets", href: "#", active: false },
-  { label: "Components", href: "#", active: false },
-  { label: "Plugins", href: "#", active: false },
+  { label: "Home", href: "/", active: Astro.url.pathname === "/" },
+  { label: "Getting Started", href: "/docs/01-getting-started", active: Astro.url.pathname.includes("getting-started") },
+  { label: "Lenin Theme", href: "/docs/02-lenin-theme", active: Astro.url.pathname.includes("lenin-theme") },
+  { label: "Preheader Logic", href: "/docs/03-preheader-logic", active: Astro.url.pathname.includes("preheader-logic") },
 ];
 ---
 
@@ -25,23 +25,24 @@ const navItems = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | RCI Developer Hub</title>
+    <ClientRouter />
   </head>
-  <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+  <body class="bg-[#F8F9FA] text-gray-800 font-sans antialiased min-h-screen flex flex-col">
     
-    <!-- Top Bar (Optional, mimicking expected doc site header if needed, but side nav is main focus) -->
-    <header class="bg-white border-b border-gray-200 h-16 flex items-center px-6 fixed w-full top-0 z-50">
+    <!-- Top Bar -->
+    <header class="bg-white border-b border-[#E0E0E0] h-16 flex items-center px-6 fixed w-full top-0 z-50">
         <div class="font-condensed font-bold text-xl text-gray-900 flex items-center">
             <span class="text-rci-red mr-2">RCI</span> Developer Hub
         </div>
         <div class="ml-auto flex gap-4 text-sm font-medium text-gray-600">
-            <a href="#" class="hover:text-rci-red">Docs</a>
-            <a href="#" class="hover:text-rci-red">Support</a>
+            <a href="#" class="hover:text-rci-red transition-colors">Docs</a>
+            <a href="#" class="hover:text-rci-red transition-colors">Support</a>
         </div>
     </header>
 
     <div class="flex pt-16 min-h-screen">
       <!-- Sidebar -->
-      <aside class="w-[280px] fixed h-[calc(100vh-64px)] overflow-y-auto border-r border-gray-200 bg-white hidden md:block">
+      <aside class="w-[280px] fixed h-[calc(100vh-64px)] overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block">
         <nav class="p-6 space-y-8">
             <div>
                 <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Core</h5>

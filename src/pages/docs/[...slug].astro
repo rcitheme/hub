@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const docsEntries = await getCollection('docs');
+  return docsEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<MainLayout title={entry.data.title}>
+  <article class="prose prose-gray max-w-none">
+    <div class="mb-8 border-b border-[#E0E0E0] pb-8">
+        <h1 class="text-4xl font-condensed font-bold text-gray-900 mb-4">{entry.data.title}</h1>
+        <p class="text-xl text-gray-600 leading-relaxed">{entry.data.description}</p>
+    </div>
+    <div class="content-body">
+        <Content />
+    </div>
+  </article>
+</MainLayout>
+
+<style is:global>
+    /* Minimal prose overrides to match Google style */
+    .prose h1, .prose h2, .prose h3 {
+        font-family: var(--font-condensed);
+        color: #202124; /* Google almost-black */
+    }
+    .prose h2 {
+        margin-top: 2.5em;
+        font-size: 1.75rem;
+    }
+    .prose p {
+        line-height: 1.8;
+    }
+    .prose code {
+        background-color: #f1f3f4;
+        color: #d93025;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+    .prose code::before, .prose code::after {
+        content: "";
+    }
+</style>

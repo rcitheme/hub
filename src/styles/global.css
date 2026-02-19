@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @font-face {
     font-family: "Lenin";
@@ -38,5 +39,6 @@
 
 /* Base styles for global defaults */
 body {
-    @apply bg-gray-50 text-gray-800 font-sans;
+    background-color: #F8F9FA;
+    @apply text-gray-800 font-sans;
 }
