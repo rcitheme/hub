@@ -6,20 +6,20 @@ import MainLayout from '../layouts/MainLayout.astro';
 <MainLayout title="Home">
     
     <!-- Hero Section: Visual Identity -->
-    <div class="relative pt-12 pb-24 border-b border-[#DADCE0]">
-        <h1 class="font-condensed font-bold text-[18vw] leading-[0.8] text-black uppercase tracking-tighter select-none">
+    <div class="relative pt-24 pb-20 border-b border-[#E0E0E0] overflow-hidden">
+        <h1 class="font-compressed font-black text-[140px] leading-[0.8] text-black uppercase tracking-normal select-none relative z-10">
             RCI<br>
             Developer<br>
             Hub
         </h1>
         
-        <div class="absolute top-12 right-0 w-[300px] text-right hidden lg:block">
-            <p class="text-[18px] font-medium leading-tight text-black mb-6">
+        <div class="absolute top-28 right-0 w-[240px] text-right hidden lg:block">
+            <p class="text-[15px] font-medium leading-tight text-[#202124] mb-6">
                 The digital arsenal for the<br>
                 Revolutionary Communist<br>
                 International.
             </p>
-            <a href="/docs/01-getting-started" class="inline-flex items-center justify-center px-8 py-3 bg-[#ea1917] text-white font-condensed font-bold text-xl uppercase hover:bg-black transition-colors">
+            <a href="/docs/01-getting-started" class="inline-flex items-center justify-center px-6 py-2 bg-[#ea1917] text-white font-condensed font-bold text-lg uppercase hover:bg-black transition-colors rounded-sm">
                 Start Building
             </a>
         </div>
@@ -29,74 +29,68 @@ import MainLayout from '../layouts/MainLayout.astro';
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         
         <!-- Cell 1: Lenin Theme -->
-        <a href="/docs/themes/lenin" class="group block p-12 border-b md:border-r border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+        <a href="/docs/themes/lenin" class="group block p-10 border-b md:border-r border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">palette</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">01</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">palette</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Lenin Theme</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">The core FSE theme for RCI sites.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Lenin Theme</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">The core FSE theme for RCI sites.</p>
             </div>
         </a>
 
         <!-- Cell 2: Components -->
-        <a href="/docs/components/news-slider" class="group block p-12 border-b lg:border-r border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+        <a href="/docs/components/news-slider" class="group block p-10 border-b lg:border-r border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">widgets</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">02</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">widgets</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Components</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">News Slider, Preheader, and more.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Components</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">News Slider, Preheader, and more.</p>
             </div>
         </a>
 
         <!-- Cell 3: Design System -->
-        <a href="/docs/design/colors" class="group block p-12 border-b md:border-r lg:border-r-0 border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+        <a href="/docs/design/colors" class="group block p-10 border-b md:border-r lg:border-r-0 border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">format_paint</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">03</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">format_paint</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Design System</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Colors, Typography, and Identity.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Design System</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">Colors, Typography, and Identity.</p>
             </div>
         </a>
 
         <!-- Cell 4: Workflow -->
-        <a href="/docs/workflow/git-standards" class="group block p-12 border-b lg:border-r border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+        <a href="/docs/workflow/git-standards" class="group block p-10 border-b lg:border-r border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">commit</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">04</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">commit</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Workflow</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Git standards and deployment.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Workflow</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">Git standards and deployment.</p>
             </div>
         </a>
 
          <!-- Cell 5: Download -->
-         <a href="/download" class="group block p-12 border-b md:border-r border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+         <a href="/download" class="group block p-10 border-b md:border-r border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">download</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">05</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">download</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Download</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Get the latest releases.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Download</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">Get the latest releases.</p>
             </div>
         </a>
 
         <!-- Cell 6: Changelog -->
-        <a href="/changelog" class="group block p-12 border-b border-[#DADCE0] hover:bg-[#ea1917] transition-colors relative h-[300px] flex flex-col justify-between">
+        <a href="/changelog" class="group block p-10 border-b border-[#E0E0E0] hover:bg-[#ea1917] transition-colors relative h-[240px] flex flex-col justify-between">
             <div class="flex justify-between items-start">
-                <span class="material-symbols-outlined text-[40px] text-black group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">history</span>
-                <span class="font-condensed font-bold text-[80px] text-black/5 group-hover:text-white/20 transition-colors absolute top-4 right-6">06</span>
+                <span class="material-symbols-outlined text-[32px] text-[#202124] group-hover:text-white transition-colors" style="font-variation-settings: 'wght' 200;">history</span>
             </div>
             <div>
-                <h2 class="font-condensed font-bold text-[32px] text-black uppercase leading-none mb-2 group-hover:text-white transition-colors">Changelog</h2>
-                <p class="text-[16px] text-black group-hover:text-white transition-colors leading-tight">Track project history.</p>
+                <h2 class="font-condensed font-bold text-[28px] text-[#202124] uppercase leading-none mb-2 group-hover:text-white transition-colors">Changelog</h2>
+                <p class="text-[14px] text-[#5F6368] group-hover:text-white/90 transition-colors leading-tight">Track project history.</p>
             </div>
         </a>
 

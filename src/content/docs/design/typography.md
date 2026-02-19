@@ -5,56 +5,61 @@ description: "The typographic scale and font stacks of the Lenin Design System."
 
 # Typography
 
-Typography in the **Lenin Design System** is bold, condensed, and authoritative. It utilizes the **Lenin** font family for a distinctive "Bolshevik Professional" aesthetic.
+The **Lenin Design System** utilizes a custom type hierarchy built around the **Lenin** font family. It is characterized by its condensed, authoritative headings and highly readable sans-serif body text.
 
 ## Font Families
 
-The system uses two primary font families defined in `theme.json`.
+### 1. Lenin Compressed (Display)
+Used for massive, impact-driven headlines. It is designed to be used at very large sizes (80px+) with tight leading.
 
-### 1. Lenin Condensed
-Used for **Headings (H1-H6)** and large display text. It allows for impactful headlines that maintain readability even at very large sizes.
+*   **Weight**: 800 (Black), 400 (Regular)
+*   **Usage**: Hero sections, Poster titles.
+*   **Class**: `.font-compressed`
 
-*   **Weights**: 400 (Regular), 700 (Bold), 800 (Extra Bold)
-*   **CSS Variable**: `var(--wp--preset--font-family--condensed)`
-*   **Fallback**: `sans-serif`
+### 2. Lenin Condensed (Headings)
+The workhorse font for standard headings and UI navigation.
 
-### 2. Lenin
-Used for **Body text** and UI elements. It provides high legibility for long-form reading contexts.
+*   **Weights**: 700 (Bold), 400 (Regular)
+*   **Usage**: H2-H6, Grid titles, Buttons, Navigation.
+*   **Class**: `.font-condensed`
 
-*   **Weights**: 400 (Regular), 700 (Bold)
-*   **CSS Variable**: `var(--wp--preset--font-family--primary)`
-*   **Fallback**: `sans-serif`
+### 3. Lenin Sans (Body)
+A clean, grotesque sans-serif for long-form reading and UI text.
+
+*   **Weights**: 700 (Bold), 400 (Regular)
+*   **Usage**: Body text, Documentation, Metadata.
+*   **Class**: `.font-sans`
 
 ## Type Scale
 
-The type scale is fluid, adapting between mobile and desktop viewports. This ensures that headlines remain impressive on large screens without breaking layouts on mobile devices.
+We follow a responsive type scale that adapts to the viewport.
 
-| Name | Slug | Size (Desktop) | Size (Mobile) | Usage |
-| :--- | :--- | :--- | :--- | :--- |
-| **Extra Extra Large** | `xx-large` | `4.3875rem` | `2.25rem` | Hero H1 |
-| **Extra Large** | `x-large` | `3.5rem` | `1.875rem` | Page Titles |
-| **Large** | `large` | `2.75rem` | `1.5rem` | Section Headings (H2) |
-| **Medium** | `medium` | `1.65rem` | `1.2rem` | Subheadings (H3) |
-| **Base** | `base` | `1.165rem` | `1rem` | Body Text |
-| **Small** | `small` | `1.05rem` | `0.9rem` | UI Labels, Metadata |
+| Level | Font Family | Size (Desktop) | Size (Mobile) | Line Height | Tracking |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Display** | Lenin Compressed Black | `140px` | `15vw` | `0.8` | `normal` |
+| **H1** | Lenin Condensed Bold | `64px` | `48px` | `1.0` | `tight` |
+| **H2** | Lenin Condensed Bold | `48px` | `32px` | `1.1` | `tight` |
+| **H3** | Lenin Condensed Bold | `32px` | `24px` | `1.2` | `normal` |
+| **Body** | Lenin Sans Regular | `16px` | `16px` | `1.6` | `relaxed` |
+| **Small** | Lenin Sans Medium | `13px` | `13px` | `1.5` | `wide` |
 
-## Implementation
+## Usage in Code
 
-In your `theme.json`, typography is applied globally to elements:
+The typography system is integrated into Tailwind via `global.css`.
 
-```json
-{
-    "styles": {
-        "elements": {
-            "heading": {
-                "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--condensed)"
-                }
-            }
-        },
-        "typography": {
-            "fontFamily": "var(--wp--preset--font-family--primary)"
-        }
-    }
-}
+```html
+<!-- Display Heading -->
+<h1 class="font-compressed font-black text-[140px] leading-[0.8] uppercase">
+  Revolution
+</h1>
+
+<!-- Standard Heading -->
+<h2 class="font-condensed font-bold text-4xl mb-4">
+  Section Title
+</h2>
+
+<!-- Body Text -->
+<p class="font-sans text-base leading-relaxed text-gray-900">
+  This is standard body text. It is optimized for readability.
+</p>
 ```
