@@ -38,7 +38,8 @@
 }
 
 /* Base styles for global defaults */
+/* Base styles for global defaults */
 body {
-    background-color: #F8F9FA;
-    @apply text-gray-800 font-sans;
+    background-color: #FFFFFF;
+    @apply text-[#202124] font-sans;
 }

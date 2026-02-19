@@ -3,71 +3,91 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 const changelog = [
   {
-    date: "February 18, 2026",
     version: "2.4.0",
-    product: "RCI News Slider",
+    date: "Feb 18, 2026",
+    title: "News Slider Update",
     desc: "Maintenance release focusing on performance and attribution standards.",
-    notes: [
-      "Updated author URI to marxist.com in plugin header.",
-      "Fixed carousel responsiveness on mobile viewport < 375px.",
-      "Added support for WEBP image formats in slide background."
-    ]
+    changes: {
+      "Improvements": [
+        "Updated author URI to marxist.com in plugin header.",
+        "Added support for WEBP image formats in slide background."
+      ],
+      "Fixes": [
+        "Fixed carousel responsiveness on mobile viewport < 375px."
+      ]
+    }
   },
   {
-    date: "February 10, 2026",
     version: "2.1.0",
-    product: "Lenin Theme",
+    date: "Feb 10, 2026",
+    title: "Lenin Theme Polish",
     desc: "Refinement of typographic scales and core color tokens.",
-    notes: [
-      "Refined H1-H6 typography scaling in theme.json.",
-      "Added 'Brand Accent' (#fef6f5) to color palette.",
-      "Fixed navigation menu z-index issue on overlay."
-    ]
+    changes: {
+      "Improvements": [
+        "Refined H1-H6 typography scaling in theme.json.",
+        "Added 'Brand Accent' (#fef6f5) to color palette."
+      ],
+      "Fixes": [
+        "Fixed navigation menu z-index issue on overlay."
+      ]
+    }
   },
   {
-    date: "January 12, 2026",
     version: "1.0.0",
-    product: "RCI Preheader",
+    date: "Jan 12, 2026",
+    title: "Preheader Launch",
     desc: "Initial launch of the preheader logic engine.",
-    notes: [
-      "Implemented Priority Tree logic: Manual > Hub > Category.",
-      "Added meta fields for custom label and custom URL."
-    ]
+    changes: {
+      "New Features": [
+        "Implemented Priority Tree logic: Manual > Hub > Category.",
+        "Added meta fields for custom label and custom URL."
+      ]
+    }
   }
 ];
 ---
 
 <MainLayout title="Changelog">
-  <div class="max-w-[1000px] pt-8">
+  <div class="max-w-[1000px] pt-8 mx-auto">
     <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-20 leading-[1.1]">Changelog</h1>
     
-    <div class="space-y-16 border-l-0"> <!-- No vertical line on parent -->
-      {changelog.map((entry, index) => (
-        <div class={`grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 ${index !== 0 ? 'border-t border-[#DADCE0] pt-16' : ''}`}>
+    <div class="space-y-12">
+      {changelog.map((entry) => (
+        <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start">
           
-          <!-- Left: Version & Date -->
-          <div>
-            <h2 class="text-[32px] font-normal text-[#202124] mb-2">{entry.version}</h2>
-            <div class="text-[16px] text-[#5F6368] mb-1">{entry.date}</div>
-            <div class="text-[14px] font-bold text-[#ea1917] uppercase tracking-wide">{entry.product}</div>
+          <!-- Left Column: Version & Date -->
+          <div class="sticky top-24">
+            <div class="text-[14px] font-bold text-[#202124] mb-1">{entry.version}</div>
+            <div class="text-[14px] text-[#5F6368]">{entry.date}</div>
           </div>
 
-          <!-- Right: Content -->
-          <div>
-            <p class="text-[18px] text-[#202124] leading-relaxed mb-8">
-                {entry.desc}
-            </p>
+          <!-- Right Column: Card -->
+          <div class="bg-[#F8F9FA] rounded-[24px] p-8 w-full">
+            <h2 class="text-[24px] font-medium text-[#202124] mb-4">{entry.title}</h2>
+            <p class="text-[16px] text-[#3C4043] leading-relaxed mb-8">{entry.desc}</p>
             
-            <ul class="space-y-4">
-                {entry.notes.map(note => (
-                    <li class="flex items-start gap-4 text-[16px] text-[#3C4043]">
-                        <span class="material-symbols-outlined text-[20px] text-[#ea1917] mt-0.5">check</span>
-                        <span class="flex-1 border-b border-[#DADCE0] pb-4 last:border-0">{note}</span>
-                    </li>
-                ))}
-            </ul>
-          </div>
+            <div class="space-y-4">
+              {Object.entries(entry.changes).map(([type, items]) => (
+                <details class="group border border-[#DADCE0] rounded-lg bg-white open:bg-white transition-colors">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer list-none text-[14px] font-medium text-[#202124] hover:bg-[#F1F3F4] rounded-lg group-open:rounded-b-none transition-colors">
+                    <span>{type} <span class="text-[#5F6368] font-normal">({items.length})</span></span>
+                    <span class="material-symbols-outlined text-[20px] text-[#5F6368] transition-transform group-open:rotate-180">expand_more</span>
+                  </summary>
+                  <div class="p-4 pt-0 border-t border-transparent group-open:border-[#DADCE0]">
+                    <ul class="space-y-3 mt-4">
+                      {items.map(item => (
+                        <li class="flex items-start gap-3 text-[14px] text-[#3C4043]">
+                           <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3C4043] flex-shrink-0"></span>
+                           <span class="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
+              ))}
+            </div>
 
+          </div>
         </div>
       ))}
     </div>

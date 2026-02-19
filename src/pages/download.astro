@@ -1,126 +1,112 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const sections = [
-  {
-    title: "Plugins",
-    items: [
-      {
-        name: "News Slider",
-        version: "2.4.0",
-        type: "Plugin",
-        icon: "view_carousel",
-        desc: "Responsive carousel for news."
-      },
-      {
-        name: "Preheader",
-        version: "1.0.0",
-        type: "Plugin",
-        icon: "label",
-        desc: "Priority logic for post kickers."
-      }
-    ]
-  },
-  {
-    title: "Themes",
-    items: [
-      {
-        name: "Lenin Theme",
-        version: "2.1.0",
-        type: "FSE Theme",
-        icon: "palette",
-        desc: "Core design system theme."
-      }
-    ]
-  }
-];
+// No data array needed for this exact clone, we'll hardcode the grid for precision control
 ---
 
 <MainLayout title="Download">
-  <div class="max-w-[1200px] pt-8">
-    <h1 class="text-[56px] font-medium tracking-tight text-[#202124] mb-16 leading-[1.1]">
+  <div class="max-w-[1200px] pt-8 mx-auto">
+    <h1 class="text-[60px] font-medium tracking-tight text-[#202124] mb-24 leading-[1.1]">
       Download RCI Components<br />
       for WordPress
     </h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 border-t border-[#DADCE0] pt-12">
-      <!-- Left Label -->
-      <div class="text-[16px] font-medium text-[#202124]">
-        Select component
+    <!-- Top Full Width Divider -->
+    <div class="border-t border-[#DADCE0] w-full"></div>
+
+    <!-- Main Grid Section -->
+    <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-x-12 py-20"> <!-- Increased Padding -->
+      
+      <!-- Label Column -->
+      <div class="text-[20px] font-medium text-[#202124]">
+        Select download
       </div>
 
-      <!-- Right Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3">
         
-        {/* News Slider Column */}
-        <div class="flex flex-col h-full border-r border-[#DADCE0] pr-8 last:border-0">
+        <!-- Column 1: News Slider -->
+        <div class="flex flex-col pr-8 border-r border-[#DADCE0]">
           <div class="flex items-center gap-3 mb-6">
-             <span class="material-symbols-outlined text-[32px] text-[#202124]">view_carousel</span>
+             <!-- Thin Icon -->
+             <span class="material-symbols-outlined text-[32px] text-[#202124]" style="font-variation-settings: 'wght' 200;">view_carousel</span>
              <h3 class="text-[20px] font-medium text-[#202124]">News Slider</h3>
           </div>
           
-          <div class="mt-auto space-y-4">
-            <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
-               <span class="text-[14px]">Download v2.4.0</span>
-            </a>
-             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
-               <span class="text-[14px]">View changelog</span>
-            </a>
-          </div>
-
-          <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
-             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
-             WordPress 6.4+, PHP 8.0
+          <div class="mt-auto space-y-6">
+            <div>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+                <span class="text-[14px]">Download v2.4.0</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+                <span class="text-[14px]">View changelog</span>
+                </a>
+            </div>
+            
+            <div class="pt-6">
+                <strong class="block text-[12px] font-bold text-[#202124] mb-1">Minimum Requirements</strong>
+                <p class="text-[12px] text-[#5F6368] leading-relaxed">
+                WordPress 6.4+<br/>PHP 8.0
+                </p>
+            </div>
           </div>
         </div>
 
-        {/* Preheader Column */}
-        <div class="flex flex-col h-full border-r border-[#DADCE0] pr-8 last:border-0">
+        <!-- Column 2: Preheader -->
+        <div class="flex flex-col px-8 border-r border-[#DADCE0]">
           <div class="flex items-center gap-3 mb-6">
-             <span class="material-symbols-outlined text-[32px] text-[#202124]">label</span>
+             <span class="material-symbols-outlined text-[32px] text-[#202124]" style="font-variation-settings: 'wght' 200;">label</span>
              <h3 class="text-[20px] font-medium text-[#202124]">Preheader</h3>
           </div>
           
-          <div class="mt-auto space-y-4">
-             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
-               <span class="text-[14px]">Download v1.0.0</span>
-            </a>
-             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
-               <span class="text-[14px]">View changelog</span>
-            </a>
-          </div>
+          <div class="mt-auto space-y-6">
+            <div>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+                <span class="text-[14px]">Download v1.0.0</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+                <span class="text-[14px]">View changelog</span>
+                </a>
+            </div>
 
-           <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
-             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
-             WordPress 6.0+
+            <div class="pt-6">
+                <strong class="block text-[12px] font-bold text-[#202124] mb-1">Minimum Requirements</strong>
+                <p class="text-[12px] text-[#5F6368] leading-relaxed">
+                WordPress 6.0+
+                </p>
+            </div>
           </div>
         </div>
 
-        {/* Lenin Theme Column */}
-        <div class="flex flex-col h-full last:border-0 border-r border-[#DADCE0]">
+        <!-- Column 3: Lenin Theme -->
+        <div class="flex flex-col pl-8"> <!-- No right border for last item -->
           <div class="flex items-center gap-3 mb-6">
-             <span class="material-symbols-outlined text-[32px] text-[#202124]">palette</span>
+             <span class="material-symbols-outlined text-[32px] text-[#202124]" style="font-variation-settings: 'wght' 200;">palette</span>
              <h3 class="text-[20px] font-medium text-[#202124]">Lenin Theme</h3>
           </div>
           
-          <div class="mt-auto space-y-4">
-             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
-               <span class="text-[14px]">Download v2.1.0</span>
-            </a>
-             <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
-               <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
-               <span class="text-[14px]">View changelog</span>
-            </a>
-          </div>
+          <div class="mt-auto space-y-6">
+            <div>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">download</span>
+                <span class="text-[14px]">Download v2.1.0</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 text-[#202124] hover:text-[#ea1917] transition-colors py-1 group">
+                <span class="material-symbols-outlined text-[20px] text-[#5F6368] group-hover:text-[#ea1917]">history</span>
+                <span class="text-[14px]">View changelog</span>
+                </a>
+            </div>
 
-           <div class="mt-12 text-[12px] text-[#5F6368] leading-relaxed">
-             <strong class="block text-[#202124] mb-1">Minimum Requirements</strong>
-             WordPress 6.6+ (FSE)
+            <div class="pt-6">
+                <strong class="block text-[12px] font-bold text-[#202124] mb-1">Minimum Requirements</strong>
+                <p class="text-[12px] text-[#5F6368] leading-relaxed">
+                WordPress 6.6+ (FSE)
+                </p>
+            </div>
           </div>
         </div>
 

@@ -42,19 +42,28 @@ const { title, headings } = Astro.props;
         </div>
     </header>
 
-    <div class="flex pt-16 min-h-screen">
+    <!-- Main Content Grid -->
+    <div class="pt-16 grid grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] min-h-screen">
+      
       <!-- Left Sidebar (Fixed) -->
-      <LeftSidebar />
+      <aside class="bg-[#F8F9FA] border-r border-[#DADCE0] fixed top-16 bottom-0 w-[280px] overflow-y-auto z-40">
+          <LeftSidebar />
+      </aside>
 
       <!-- Main Content (Centered) -->
-      <main class="flex-1 md:ml-[280px] xl:mr-[220px] w-full max-w-[calc(100vw-280px)] xl:max-w-[calc(100vw-500px)]">
-        <div class="max-w-[800px] mx-auto px-8 py-10">
+      <main class="col-start-2 col-end-3 min-w-0 bg-white">
+        <!-- Inner container for constraints -->
+        <div class="w-full max-w-[1000px] px-12 py-12">
             <slot />
         </div>
       </main>
 
       <!-- Right Sidebar (Fixed, only if headings exist) -->
-      {headings && headings.length > 0 && <RightSidebar headings={headings} />}
+      {headings && headings.length > 0 && (
+        <aside class="fixed top-16 right-0 bottom-0 w-[240px] overflow-y-auto py-12 px-6 bg-white hidden xl:block">
+            <RightSidebar headings={headings} />
+        </aside>
+      )}
     </div>
   </body>
 </html>
