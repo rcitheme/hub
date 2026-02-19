@@ -1,33 +1,41 @@
 ---
 title: "Getting Started"
-description: "Overview of the RCI Developer Ecosystem and the Lenin 2.0 Theme."
+description: "Everything you need to set up your RCI development environment."
 ---
 
 # Getting Started
 
-The **RCI Developer Hub** serves as the central command for all technical directives regarding the digital infrastructure of the International. This repository ensures consistency, stability, and adherence to the **Lenin 2.0 Design System** across all regional bureaus and publications.
-
-## The Ecosystem
-
-Our digital architecture is built upon a strict foundation of standardized components and prescribed workflows. Deviations from these standards are counter-revolutionary to our goal of a unified, high-performance web presence.
-
-### 1. Lenin 2.0 Theme
-The core WordPress theme powering our network. It is not merely a visual skin but a structural framework implementing our design tokens and layout primitives.
-*   **Repo**: `rcitheme/lenin`
-*   **Stance**: Mobile-first, Block-based (FSE).
-
-### 2. Plugin Architecture
-Functionality is modularized into single-purpose plugins to maintain a lightweight core.
-*   **RCI Preheader**: Manages the "kicker" logic above post titles.
-*   **RCI News Slider**: Handles the frontend carousel logic.
+Welcome to the **RCI Developer Hub**. This platform serves as the single source of truth for the entire RCI digital ecosystem, documenting our themes, plugins, and design systems.
 
 ## Prerequisites
 
-Before contributing to the codebase, ensure your environment meets the following specifications:
-*   **Node.js**: v18+ (LTS)
-*   **Composer**: v2.5+
-*   **Docker**: For local WordPress environment orchestration.
+Before contributing to the codebase, ensure your local development environment meets the following requirements:
 
-## Workflow Directive
+*   **WordPress**: v6.6+ (Full Site Editing support required)
+*   **PHP**: v8.1+
+*   **Node.js**: v18+ (for block development)
+*   **Composer**: v2+
 
-All development must follow the "Main Branch" strategy. Direct commits to production are strictly prohibited. Feature branches must be peer-reviewed before merging into the collective `main` branch.
+## Installation
+
+### Theme Setup
+The **Lenin** theme is the core of our visual identity. To install it locally:
+
+1.  Clone the repository into your `wp-content/themes` directory.
+2.  Run `npm install` to fetch dependencies.
+3.  Run `npm run build` to compile the tailwind styles and assets.
+
+### Plugin Architecture
+Our functionality is modularized into single-purpose blocks. Key plugins include:
+
+*   `rci-news-slider`: The primary carousel block.
+*   `rci-preheader`: Logic engine for content priority.
+*   `rci-lexicon`: Glossary and definition management.
+
+## Next Steps
+
+Once your environment is set up, explore the key documentation sections:
+
+1.  **[Design System](/docs/design/colors)**: Understand our color palette and typography.
+2.  **[Components](/docs/components/news-slider)**: Learn how to implement our core blocks.
+3.  **[Workflow](/docs/workflow/git-standards)**: Review our git commit standards.
