@@ -1,0 +1,50 @@
+---
+const navItems = [
+  { label: "Home", href: "/", icon: "home" },
+  { label: "Getting Started", href: "/docs/01-getting-started", icon: "start" },
+  { label: "Lenin Theme", href: "/docs/02-lenin-theme", icon: "palette" },
+  { label: "Preheader Logic", href: "/docs/03-preheader-logic", icon: "code" },
+  { label: "Download", href: "/download", icon: "download" },
+  { label: "Changelog", href: "/changelog", icon: "history" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="w-[280px] fixed top-16 bottom-0 left-0 overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block z-30">
+  <nav class="p-4 space-y-1">
+    <div class="mb-4 px-4 py-2">
+      <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Menu</span>
+    </div>
+    
+    <ul class="space-y-1">
+      {navItems.map((item) => {
+        const isActive = item.href === "/" 
+          ? currentPath === "/"
+          : currentPath.startsWith(item.href);
+        
+        return (
+          <li>
+            <a 
+              href={item.href} 
+              class:list={[
+                "flex items-center px-4 py-2.5 text-[14px] font-medium rounded-r-full transition-colors relative",
+                isActive 
+                  ? "text-[#ea1917] bg-red-50" 
+                  : "text-[#3C4043] hover:bg-gray-200/50"
+              ]}
+            >
+              <!-- Active Indicator Border (Left) -->
+              {isActive && (
+                <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-[#ea1917] rounded-e-xl"></div>
+              )}
+              
+              <span class="material-symbols-outlined text-[20px]">{item.icon}</span>
+              <span class="ml-3 text-[14px] font-medium">{item.label}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</aside>

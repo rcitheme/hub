@@ -13,7 +13,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<MainLayout title={entry.data.title}>
+<MainLayout title={entry.data.title} headings={await entry.render().then(r => r.headings)}>
   <article class="prose prose-gray max-w-none">
     <div class="mb-8 border-b border-[#E0E0E0] pb-8">
         <h1 class="text-4xl font-condensed font-bold text-gray-900 mb-4">{entry.data.title}</h1>

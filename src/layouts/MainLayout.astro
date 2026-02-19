@@ -1,19 +1,16 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from 'astro:transitions';
+import LeftSidebar from '../components/LeftSidebar.astro';
+import RightSidebar from '../components/RightSidebar.astro';
+import type { MarkdownHeading } from 'astro';
 
 interface Props {
   title: string;
+  headings?: MarkdownHeading[];
 }
 
-const { title } = Astro.props;
-
-const navItems = [
-  { label: "Home", href: "/", active: Astro.url.pathname === "/" },
-  { label: "Getting Started", href: "/docs/01-getting-started", active: Astro.url.pathname.includes("getting-started") },
-  { label: "Lenin Theme", href: "/docs/02-lenin-theme", active: Astro.url.pathname.includes("lenin-theme") },
-  { label: "Preheader Logic", href: "/docs/03-preheader-logic", active: Astro.url.pathname.includes("preheader-logic") },
-];
+const { title, headings } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,59 +23,37 @@ const navItems = [
     <meta name="generator" content={Astro.generator} />
     <title>{title} | RCI Developer Hub</title>
     <ClientRouter />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   </head>
-  <body class="bg-[#F8F9FA] text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+  <body class="bg-[#F8F9FA] text-[#202124] font-sans antialiased min-h-screen flex flex-col">
     
     <!-- Top Bar -->
     <header class="bg-white border-b border-[#E0E0E0] h-16 flex items-center px-6 fixed w-full top-0 z-50">
-        <div class="font-condensed font-bold text-xl text-gray-900 flex items-center">
-            <span class="text-rci-red mr-2">RCI</span> Developer Hub
+        <div class="font-condensed font-bold text-xl text-[#202124] flex items-center">
+            <a href="/" class="flex items-center gap-2 decoration-0 text-inherit hover:text-inherit">
+                <span class="text-[#ea1917]">RCI</span> Developer Hub
+            </a>
         </div>
-        <div class="ml-auto flex gap-4 text-sm font-medium text-gray-600">
-            <a href="#" class="hover:text-rci-red transition-colors">Docs</a>
-            <a href="#" class="hover:text-rci-red transition-colors">Support</a>
+        <div class="ml-auto flex gap-6 text-[14px] font-medium text-[#5F6368]">
+            <a href="/docs/01-getting-started" class="hover:text-[#ea1917] transition-colors">Docs</a>
+            <a href="/download" class="hover:text-[#ea1917] transition-colors">Download</a>
+            <a href="/changelog" class="hover:text-[#ea1917] transition-colors">Changelog</a>
         </div>
     </header>
 
     <div class="flex pt-16 min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-[280px] fixed h-[calc(100vh-64px)] overflow-y-auto border-r border-[#E0E0E0] bg-[#F8F9FA] hidden md:block">
-        <nav class="p-6 space-y-8">
-            <div>
-                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Core</h5>
-                <ul class="space-y-1">
-                    {navItems.map((item) => (
-                        <li>
-                            <a 
-                                href={item.href} 
-                                class:list={[
-                                    "block px-3 py-2 text-sm font-medium rounded-md transition-colors border-l-4",
-                                    item.active 
-                                        ? "border-rci-red bg-red-50 text-rci-red" 
-                                        : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                                ]}
-                            >
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+      <!-- Left Sidebar (Fixed) -->
+      <LeftSidebar />
 
-            <div>
-                 <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Resources</h5>
-                 <ul class="space-y-1">
-                    <li><a href="#" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md border-l-4 border-transparent">Figma Kit</a></li>
-                    <li><a href="#" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md border-l-4 border-transparent">Icon Strings</a></li>
-                 </ul>
-            </div>
-        </nav>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="flex-1 md:ml-[280px] p-8 max-w-5xl mx-auto w-full">
-        <slot />
+      <!-- Main Content (Centered) -->
+      <main class="flex-1 md:ml-[280px] xl:mr-[220px] w-full max-w-[calc(100vw-280px)] xl:max-w-[calc(100vw-500px)]">
+        <div class="max-w-[800px] mx-auto px-8 py-10">
+            <slot />
+        </div>
       </main>
+
+      <!-- Right Sidebar (Fixed, only if headings exist) -->
+      {headings && headings.length > 0 && <RightSidebar headings={headings} />}
     </div>
   </body>
 </html>

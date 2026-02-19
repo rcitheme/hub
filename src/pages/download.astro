@@ -1,0 +1,62 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const plugins = [
+  {
+    name: "RCI News Slider",
+    version: "2.4.0",
+    description: "Responsive carousel block for news items. Supports manual kicker override and category fallback.",
+    icon: "view_carousel",
+    updated: "Feb 18, 2026"
+  },
+  {
+    name: "RCI Preheader",
+    version: "1.0.0",
+    description: "Logic engine for the 'Preheader' meta field. Implements the Priority Tree (Manual > Hub > Category).",
+    icon: "label",
+    updated: "Jan 12, 2026"
+  },
+  {
+    name: "Lenin Theme",
+    version: "2.1.0",
+    description: "The core FSE theme for RCI network sites. Includes all design tokens and block patterns.",
+    icon: "palette",
+    updated: "Feb 10, 2026"
+  }
+];
+---
+
+<MainLayout title="Download">
+  <div class="max-w-[900px]">
+    <h1 class="text-[40px] font-condensed font-bold text-[#202124] mb-4">Downloads</h1>
+    <p class="text-[16px] text-[#5F6368] mb-12 max-w-[700px]">
+      Access the latest releases of official RCI plugins and themes. All artifacts are signed and verified for production use.
+    </p>
+
+    <div class="space-y-6">
+      {plugins.map((plugin) => (
+        <div class="bg-white border border-[#E0E0E0] rounded-[16px] p-8 shadow-[0_1px_2px_0_rgba(60,64,67,.3),0_1px_3px_1px_rgba(60,64,67,.15)] flex flex-col md:flex-row items-start md:items-center gap-6 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          
+          <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-[#ea1917]">
+            <span class="material-symbols-outlined text-[24px]">{plugin.icon}</span>
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-[20px] font-bold text-[#202124] mb-1 flex items-center gap-3">
+                {plugin.name}
+                <span class="text-[12px] bg-gray-100 text-[#5F6368] px-2 py-0.5 rounded-full font-medium">v{plugin.version}</span>
+            </h3>
+            <p class="text-[14px] text-[#5F6368] leading-relaxed">{plugin.description}</p>
+            <p class="text-[12px] text-[#9AA0A6] mt-2">Last updated: {plugin.updated}</p>
+          </div>
+
+          <button class="bg-[#202124] text-white px-6 py-2.5 rounded-full text-[14px] font-medium hover:bg-[#3C4043] transition-colors flex items-center gap-2 whitespace-nowrap">
+            <span class="material-symbols-outlined text-[18px]">download</span>
+            Download
+          </button>
+
+        </div>
+      ))}
+    </div>
+  </div>
+</MainLayout>

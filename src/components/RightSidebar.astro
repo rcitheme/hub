@@ -1,0 +1,28 @@
+---
+interface Props {
+  headings?: { depth: number; slug: string; text: string }[];
+}
+
+const { headings = [] } = Astro.props;
+---
+
+<aside class="w-[220px] fixed top-16 bottom-0 right-0 overflow-y-auto hidden xl:block z-30 pr-6">
+  <div class="p-6">
+    <h5 class="text-[12px] font-bold text-[#5F6368] uppercase tracking-wider mb-4">On this page</h5>
+    <ul class="space-y-2 border-l border-[#DADCE0]">
+      {headings.map((heading) => (
+        <li>
+          <a 
+            href={`#${heading.slug}`} 
+            class:list={[
+              "block pl-4 text-[13px] text-[#5F6368] hover:text-[#202124] border-l border-transparent hover:border-[#5F6368] -ml-[1px] transition-colors",
+              heading.depth === 3 ? "pl-8" : ""
+            ]}
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>
